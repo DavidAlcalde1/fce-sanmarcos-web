@@ -1,0 +1,46 @@
+# Dependencias de Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Archivos de entorno (¡nunca los subas!)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build de React (si usas Create React App o Vite)
+/build
+/dist
+/.vite
+/out
+.next/
+.nuxt/
+.cache/
+
+# Carpetas y archivos del sistema
+.DS_Store
+Thumbs.db
+
+# IDEs y editores
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Archivos temporales
+*.tmp
+*.log
+
+# Coverage (reportes de pruebas)
+coverage/
+
+# Archivos de configuración local
+.vercel
+.netlify
+
+# Archivos de Git (no deberían subirse, pero por si acaso)
+.git
