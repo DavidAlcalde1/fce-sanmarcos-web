@@ -1,7 +1,7 @@
 # Portal Institucional - Facultad de Ciencias Económicas (UNMSM)
 
 &gt; Proyecto de titulación – Trabajo de Suficiencia Profesional  
-&gt; Autor: JOSÉ DAVID ALCALDE CABRERA  
+&gt; Autor: **Bach. JOSÉ DAVID ALCALDE CABRERA**  
 &gt; Asesor: **Nombre del asesor**  
 &gt; Fecha límite: 15 de noviembre de 2025
 
