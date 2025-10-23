@@ -1,14 +1,7 @@
-FROM node:20-alpine AS deps
+FROM node:latest
 WORKDIR /app
 COPY package*.json ./
-RUN npm ci --only=production && npm cache clean --force
-
-FROM node:20-alpine
-RUN apk add --no-cache tini
-WORKDIR /app
-COPY --from=deps /app/node_modules ./node_modules
+RUN npm install --only=production
 COPY . .
-# no hagas USER node todavía
 EXPOSE 8080
-ENTRYPOINT ["/sbin/tini", "--"]
 CMD ["node", "src/index.js"]

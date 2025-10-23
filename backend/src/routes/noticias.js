@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../db');
+const { verifyToken } = require('./auth');
 
 // GET /api/noticias – lista paginada
 router.get('/', async (_req, res) => {
@@ -27,7 +28,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // POST /api/noticias – crear noticia (por ahora sin auth)
-router.post('/', async (req, res) => {
+router.post('/', verifyToken, async (req, res) => {
   try {
     const { titulo, contenido, imagen_url } = req.body;
     if (!titulo) return res.status(400).json({ error: 'Falta título' });
@@ -45,7 +46,7 @@ router.post('/', async (req, res) => {
 
 
 // PUT /api/noticias/:id – actualizar noticia
-router.put('/:id', async (req, res) => {
+router.put('/:id', verifyToken, async (req, res) => {
   try {
     const { id } = req.params;
     const { titulo, contenido, imagen_url } = req.body;
@@ -64,7 +65,7 @@ router.put('/:id', async (req, res) => {
 });
 
 // DELETE /api/noticias/:id – borrar noticia
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', verifyToken, async (req, res) => {
   try {
     const { id } = req.params;
     const sql = 'DELETE FROM noticias WHERE id = $1 RETURNING id';
