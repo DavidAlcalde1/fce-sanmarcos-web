@@ -19,6 +19,32 @@ const verifyToken = (req, res, next) => {
   }
 };
 
+
+
+/**
+ * @swagger
+ * /auth/login:
+ *   post:
+ *     summary: Login de usuario
+ *     tags: [Auth]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               email:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Token JWT
+ *       401:
+ *         description: Credenciales inválidas
+ */
+
 // ---------- rutas ----------
 router.post('/login', async (req, res) => {
   try {

@@ -5,6 +5,8 @@ const noticiasRoutes = require('./routes/noticias');
 const authRoutes = require('./routes/auth');
 const { verifyToken } = require('./routes/auth');
 const adminRoutes = require('./routes/admin');
+const swaggerUi = require('swagger-ui-express');
+const specs = require('./swagger');
 
 const app = express();
 app.use(express.json());
@@ -14,6 +16,8 @@ app.use('/api/noticias', noticiasRoutes);
 app.use('/api/auth', require('./routes/auth').router);          // <─ router de login
 // app.use('/api/admin', verifyToken);  
 app.use('/api/admin', adminRoutes);
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
